@@ -1,0 +1,94 @@
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-[#0d1117] text-[#c9d1d9]">
+      {/* Hero */}
+      <section className="max-w-3xl mx-auto px-6 pt-24 pb-20 text-center">
+        <span className="inline-block bg-[#161b22] border border-[#30363d] text-[#58a6ff] text-xs font-semibold px-3 py-1 rounded-full mb-6 uppercase tracking-widest">
+          Chrome Extension + ML
+        </span>
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-5">
+          Reveal Hidden Salary Ranges on{" "}
+          <span className="text-[#58a6ff]">LinkedIn</span>
+        </h1>
+        <p className="text-lg text-[#8b949e] max-w-xl mx-auto mb-8">
+          Our ML model analyzes thousands of job posts to predict compensation for listings that hide salary data. Know your worth before you apply.
+        </p>
+        <a
+          href={process.env.NEXT_PUBLIC_LS_CHECKOUT_URL || "#"}
+          className="inline-block bg-[#58a6ff] hover:bg-[#79b8ff] text-[#0d1117] font-bold text-base px-8 py-3 rounded-lg transition-colors duration-200"
+        >
+          Get SalaryReveal — $9/mo
+        </a>
+        <p className="mt-4 text-sm text-[#6e7681]">Cancel anytime. Works on all LinkedIn job listings.</p>
+
+        {/* Feature pills */}
+        <div className="flex flex-wrap justify-center gap-3 mt-10">
+          {["Real-time predictions", "ML-powered accuracy", "Overlay on LinkedIn", "No manual searching"].map((f) => (
+            <span key={f} className="bg-[#161b22] border border-[#30363d] text-[#8b949e] text-sm px-4 py-1.5 rounded-full">
+              {f}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="max-w-sm mx-auto px-6 pb-20">
+        <div className="bg-[#161b22] border border-[#30363d] rounded-2xl p-8 text-center shadow-xl">
+          <p className="text-[#58a6ff] text-sm font-semibold uppercase tracking-widest mb-2">Pro Plan</p>
+          <div className="text-5xl font-extrabold text-white mb-1">$9</div>
+          <p className="text-[#6e7681] text-sm mb-6">per month · cancel anytime</p>
+          <ul className="text-left space-y-3 mb-8">
+            {[
+              "Chrome extension install",
+              "Unlimited salary predictions",
+              "ML model trained on 500k+ jobs",
+              "Overlay on every LinkedIn listing",
+              "Priority model updates"
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2 text-sm text-[#c9d1d9]">
+                <span className="text-[#58a6ff] mt-0.5">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a
+            href={process.env.NEXT_PUBLIC_LS_CHECKOUT_URL || "#"}
+            className="block w-full bg-[#58a6ff] hover:bg-[#79b8ff] text-[#0d1117] font-bold text-base py-3 rounded-lg transition-colors duration-200 text-center"
+          >
+            Start for $9/mo
+          </a>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="max-w-2xl mx-auto px-6 pb-24">
+        <h2 className="text-2xl font-bold text-white text-center mb-8">Frequently Asked Questions</h2>
+        <div className="space-y-4">
+          {[
+            {
+              q: "How accurate are the salary predictions?",
+              a: "Our ML model is trained on over 500,000 job postings with verified salary data, achieving a median error of under 12%. Predictions improve continuously as more data is collected."
+            },
+            {
+              q: "Does it work on all LinkedIn job listings?",
+              a: "Yes. The Chrome extension automatically detects LinkedIn job pages and overlays salary predictions on any listing that doesn't already show compensation data."
+            },
+            {
+              q: "Is my LinkedIn data safe?",
+              a: "We only read publicly visible job post content — never your personal profile or credentials. No LinkedIn login is required for the extension to function."
+            }
+          ].map(({ q, a }) => (
+            <div key={q} className="bg-[#161b22] border border-[#30363d] rounded-xl p-5">
+              <p className="font-semibold text-white mb-2">{q}</p>
+              <p className="text-sm text-[#8b949e] leading-relaxed">{a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <footer className="border-t border-[#21262d] text-center py-6 text-xs text-[#6e7681]">
+        © {new Date().getFullYear()} SalaryReveal. Not affiliated with LinkedIn.
+      </footer>
+    </main>
+  );
+}
